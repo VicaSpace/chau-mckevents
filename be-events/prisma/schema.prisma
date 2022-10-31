@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Event {
+  id                 Int             @id @default(autoincrement())
+  ownerId            Int             @map("owner_id")
+  eventName          String          @map("event_name")
+  description        String          @db.VarChar(2000)
+  location           String
+
+  status             EventStatus
+  
+  startDate          DateTime        @map("start_date")
+  duration           Int
+  startTime          DateTime        @map("start_time") @default(null)
+  timeSuggestions    EventTimeSuggestion[]
+
+  minParticipants    Int             @map("min_participants")
+  requiresMinParticipants Boolean    @map("require_min_participants")
+
+  office             Office          @relation(fields: [officeId], references: [id])
+  officeId           Int             @map("office_id")
+  
+  @@map("events")
+}
+
+model EventTimeSuggestion {
+  id        Int     @id @default(autoincrement())
+  
+  event     Event   @relation(fields: [eventId], references: [id])
+  eventId   Int     @map("event_id")
+  time      DateTime
+  votes     EventTimeVoting[]
+
+  @@map("event_time_suggestions")
+}
+
+model EventTimeVoting {
+  id                Int                 @id @default(autoincrement())
+  timeSuggestion    EventTimeSuggestion @relation(fields: [timeSuggestionId], references: [id])
+  timeSuggestionId  Int                 @map("time_suggestion_id")
+  userId            Int                 @map("user_id")
+
+  @@map("event_time_votings")
+}
+
+model Office {
+  id      Int @id @default(autoincrement())
+  name    String
+  address String
+
+  events  Event[]
+
+  @@map("offices")
+}
+
+enum EventStatus {
+  NOT_CONFIRMED
+  CONFIRMED
+  CANCELLED
+}
