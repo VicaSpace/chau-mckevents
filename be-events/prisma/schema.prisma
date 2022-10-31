@@ -22,11 +22,12 @@ model Event {
   
   startDate          DateTime        @map("start_date")
   duration           Int
-  startTime          DateTime        @map("start_time") @default(null)
+  startTime          DateTime        @map("start_time")
   timeSuggestions    EventTimeSuggestion[]
 
   minParticipants    Int             @map("min_participants")
   requiresMinParticipants Boolean    @map("require_min_participants")
+  eventParticipants  EventParticipant[]
 
   office             Office          @relation(fields: [officeId], references: [id])
   officeId           Int             @map("office_id")
@@ -68,4 +69,15 @@ enum EventStatus {
   NOT_CONFIRMED
   CONFIRMED
   CANCELLED
+}
+
+model EventParticipant {
+  id                Int                 @id @default(autoincrement())
+
+  userId            Int                 @map("user_id")
+
+  event     Event   @relation(fields: [eventId], references: [id])
+  eventId   Int     @map("event_id")
+
+  @@map("event_participants")
 }

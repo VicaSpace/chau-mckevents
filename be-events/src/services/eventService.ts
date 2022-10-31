@@ -1,8 +1,16 @@
 import { prisma } from '@/db';
 import { EventStatus } from '@prisma/client';
 
-const getAllEvents = async () => {
-  return await prisma.event.findMany();
+const getAllEvents = async (startDate: string) => {
+  return await prisma.event.findMany({
+    where: {
+      startDate: new Date(startDate)
+    },
+    include: {
+      eventParticipants: true,
+      timeSuggestions: true,
+    }
+  });
 };
 
 const getEventDetails = async (eventId: number) => {
@@ -10,19 +18,72 @@ const getEventDetails = async (eventId: number) => {
     where: {
       id: eventId,
     },
+    include: {
+      eventParticipants: true,
+      timeSuggestions: {
+        include: {
+          votes: true
+        }
+      },
+    }
   });
 };
 
 const createEvent = async (ownerId, eventInfo) => {
-  return await prisma.event.create({
-    data: {
-      ...eventInfo,
-      startTime: new Date(eventInfo.startTime),
-      startDate: new Date(eventInfo.startDate),
-      status: EventStatus.NOT_CONFIRMED,
-      ownerId: ownerId,
-    },
-  });
+  const newEvent = await prisma.$transaction(async (prisma) => {
+    const event = await prisma.event.create({
+      data: {
+        ...eventInfo,
+        startTime: new Date(eventInfo.startTime),
+        startDate: new Date(eventInfo.startDate),
+        status: EventStatus.NOT_CONFIRMED,
+        ownerId: ownerId,
+      },
+    });
+
+    // add time suggestion
+    await prisma.eventTimeSuggestion.create({
+      data: {
+        eventId: event.id,
+        time: event.startTime
+      }
+    });
+
+    return await prisma.event.findUniqueOrThrow({
+      where: {
+        id: event.id
+      },
+      include: {
+        timeSuggestions: true
+      }
+    })
+  })
+  return newEvent;
 };
 
-export { getAllEvents, getEventDetails, createEvent };
+const registerUserIntoEvent =async (userId: number, eventId: number, timeslotIds: number[]) => {
+  // TODO: handle add new time-slots
+  const newRegistration = await prisma.$transaction(async (prisma) => {
+    const registration = await prisma.eventParticipant.create({
+      data: {
+        eventId,
+        userId,
+      }
+    })
+
+    // add time suggestion
+    await Promise.all(timeslotIds.map((timeslotId) => {
+      return prisma.eventTimeVoting.create({
+        data: {
+          timeSuggestionId: timeslotId,
+          userId
+        }
+      });
+    }));
+
+    return registration;
+  })
+  return newRegistration;
+}
+
+export { getAllEvents, getEventDetails, createEvent, registerUserIntoEvent };
