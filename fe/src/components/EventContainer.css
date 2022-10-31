@@ -1,0 +1,29 @@
+.event-container {
+    position: absolute;
+    width: 1048px;
+    height: 951px;
+    left: 394px;
+    top: 74px;
+
+    background: #E3E3E3;
+
+    padding-left: 128px;
+}
+
+.event-container-header {
+    position: absolute;
+    width: 364px;
+    height: 48px;
+    left: 365px;
+    top: 63px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #000000;
+
+    text-align: center;
+}

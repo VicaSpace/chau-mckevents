@@ -1,0 +1,7 @@
+.event-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+
+    padding-top: 282px;
+}

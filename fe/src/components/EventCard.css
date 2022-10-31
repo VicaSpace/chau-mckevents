@@ -1,0 +1,77 @@
+.event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 832.95px;
+    height: 198px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    margin-top: 25px;
+}
+
+.event-date {
+    width: 154.72px;
+    height: 57.12px;
+    margin-top: 11.53px;
+    margin-left: 30.36px;
+}
+
+.event-date-month {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+
+    color: #263238;
+    text-align: center;
+}
+
+.event-year {
+    text-align: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+.event-time {
+    position: absolute;
+
+    width: 301px;
+    height: 14px;
+    left: 254px;
+    margin-top: 0px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    color: #000000;
+}
+
+.event-location {
+    position: absolute;
+    width: 336px;
+    height: 42px;
+    left: 255px;
+    margin-top: 5px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #000000;
+}
