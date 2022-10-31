@@ -21,7 +21,7 @@ const EventList: React.FC<{}> = () => {
           key={i}
           name={event.eventName}
           date={event.startDate}
-          organizer={event.ownerId}
+          organizer={event.owner.username}
           time={event.startTime}
           location={event.location}
           office={event.office.name}
