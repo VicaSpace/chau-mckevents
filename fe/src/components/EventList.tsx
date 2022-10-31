@@ -1,4 +1,4 @@
-import EventCard from './EventCard';
+import EventCard from './EventCard/EventCard';
 import { useEffect, useState } from 'react';
 import { getAllEvents } from '../lib/apis/events';
 import './EventList.css';
@@ -25,6 +25,8 @@ const EventList: React.FC<{}> = () => {
           time={event.startTime}
           location={event.location}
           office={event.office.name}
+          timeSuggestions={event.timeSuggestions}
+          status={event.status}
         />
       ))}
     </div>

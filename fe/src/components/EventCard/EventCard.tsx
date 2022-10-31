@@ -1,8 +1,8 @@
-import moment from 'moment';
 import React from 'react';
 import './EventCard.css';
 import EventCardFooter from './EventCardFooter';
 import EventCardHeader from './EventCardHeader';
+import EventContent from './EventContent';
 
 interface EventCardProps {
   name: string;
@@ -11,6 +11,8 @@ interface EventCardProps {
   time: string;
   location: string;
   office: string;
+  timeSuggestions: any[];
+  status: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -20,24 +22,19 @@ const EventCard: React.FC<EventCardProps> = ({
   time,
   location,
   office,
+  timeSuggestions,
+  status,
 }) => {
   return (
     <div className="event-card">
       <EventCardHeader name={name} organizer={organizer} office={office} />
-      <div className="card-content">
-        <div className="event-date">
-          <div className="event-date-month">
-            {moment(date).format('MMMM Do').toString()}
-          </div>
-          <div className="event-year">
-            {moment(date).format('YYYY').toString()}
-          </div>
-        </div>
-        <div className="event-time">
-          Time: {moment(time).format('HH:MM').toString()}
-        </div>
-        <div className="event-location">Location: {location}</div>
-      </div>
+      <EventContent
+        date={date}
+        time={time}
+        timeSuggestions={timeSuggestions}
+        location={location}
+        status={status}
+      />
       <EventCardFooter />
     </div>
   );

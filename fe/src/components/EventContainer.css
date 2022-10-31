@@ -52,4 +52,18 @@
     background: rgba(37, 124, 227, 0.9);
     border: 1px solid rgba(37, 124, 227, 0.9);
     border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height, or 157% */
+
+    text-align: center;
+
+    /* Character / Primary(inverse) */
+
+    color: #FFFFFF;
+
 }
