@@ -8,6 +8,7 @@ const EventContainer: React.FC<{}> = () => {
     <div className="event-container">
       <div className="event-container-header">Upcoming events</div>
       <EventList />
+      <button className="create-event-button">Create new event</button>
     </div>
   );
 };

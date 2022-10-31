@@ -30,3 +30,26 @@
 
     text-align: center;
 }
+
+.create-event-button {
+    box-sizing: border-box;
+
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 15px;
+    gap: 10px;
+
+    position: absolute;
+    width: 140px;
+    height: 32px;
+    left: 820px;
+    top: 114px;
+
+    background: rgba(37, 124, 227, 0.9);
+    border: 1px solid rgba(37, 124, 227, 0.9);
+    border-radius: 10px;
+}
