@@ -3,5 +3,6 @@
     flex-direction: column;
     overflow-y: scroll;
 
-    padding-top: 282px;
+    top: 282px;
+    position: absolute;
 }

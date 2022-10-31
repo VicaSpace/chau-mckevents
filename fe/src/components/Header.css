@@ -1,0 +1,9 @@
+.header-bar {
+    position: absolute;
+    width: 1440px;
+    height: 74px;
+    left: 0px;
+    top: 0px;
+
+    background: #223752;
+}
