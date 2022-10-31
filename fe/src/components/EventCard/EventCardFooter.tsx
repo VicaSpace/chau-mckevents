@@ -6,11 +6,14 @@ import {
 import React from 'react';
 import './EventCardFooter.css';
 
-const EventCardFooter: React.FC<{}> = () => {
+const EventCardFooter: React.FC<{ status: string }> = ({ status }) => {
   return (
     <div className="card-footer">
       <div className="card-footer-item">
-        <CheckCircleOutlined />
+        <CheckCircleOutlined
+          data-testid="check-icon"
+          style={status === 'CONFIRMED' ? { color: 'green' } : {}}
+        />
       </div>
 
       <div className="card-footer-item">

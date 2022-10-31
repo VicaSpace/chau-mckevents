@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test: Event Card component screenshot should render the Event Card correctly 1`] = `
+<div>
+  <div
+    class="event-card"
+  >
+    <div
+      class="card-head"
+    >
+      <div
+        class="event-name"
+      >
+        test
+      </div>
+      <div
+        class="event-organizer"
+      >
+        Organizer: 
+        test-organizer
+      </div>
+      <div
+        class="event-office"
+      >
+        test
+      </div>
+    </div>
+    <div
+      class="card-content"
+    >
+      <div
+        class="event-date"
+      >
+        <div
+          class="event-date-month"
+        >
+          February 2nd
+        </div>
+        <div
+          class="event-year"
+        >
+          2020
+        </div>
+      </div>
+      <div
+        class="event-time"
+        data-testid="test-event-time"
+      >
+        Time suggestions:
+         
+        08:02 / 09:02
+      </div>
+      <div
+        class="event-location"
+        data-testid="test-event-location"
+      >
+        Location: 
+        test
+      </div>
+    </div>
+    <div
+      class="card-footer"
+    >
+      <div
+        class="card-footer-item"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          data-testid="check-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="card-footer-item"
+      >
+        <span
+          aria-label="share-alt"
+          class="anticon anticon-share-alt"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="share-alt"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M752 664c-28.5 0-54.8 10-75.4 26.7L469.4 540.8a160.68 160.68 0 000-57.6l207.2-149.9C697.2 350 723.5 360 752 360c66.2 0 120-53.8 120-120s-53.8-120-120-120-120 53.8-120 120c0 11.6 1.6 22.7 4.7 33.3L439.9 415.8C410.7 377.1 364.3 352 312 352c-88.4 0-160 71.6-160 160s71.6 160 160 160c52.3 0 98.7-25.1 127.9-63.8l196.8 142.5c-3.1 10.6-4.7 21.8-4.7 33.3 0 66.2 53.8 120 120 120s120-53.8 120-120-53.8-120-120-120zm0-476c28.7 0 52 23.3 52 52s-23.3 52-52 52-52-23.3-52-52 23.3-52 52-52zM312 600c-48.5 0-88-39.5-88-88s39.5-88 88-88 88 39.5 88 88-39.5 88-88 88zm440 236c-28.7 0-52-23.3-52-52s23.3-52 52-52 52 23.3 52 52-23.3 52-52 52z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="card-footer-item"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

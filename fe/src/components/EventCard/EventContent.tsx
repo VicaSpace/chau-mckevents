@@ -15,7 +15,7 @@ const EventContent: React.FC<{
     } else if (status === 'NOT_CONFIRMED') {
       return (
         <>
-          Time suggestions:
+          Time suggestions:{' '}
           {timeSuggestions
             .map((suggestion) =>
               moment(suggestion.time).format('HH:MM').toString()
@@ -36,8 +36,12 @@ const EventContent: React.FC<{
           {moment(date).format('YYYY').toString()}
         </div>
       </div>
-      <div className="event-time">{renderTime()}</div>
-      <div className="event-location">Location: {location}</div>
+      <div className="event-time" data-testid="test-event-time">
+        {renderTime()}
+      </div>
+      <div className="event-location" data-testid="test-event-location">
+        Location: {location}
+      </div>
     </div>
   );
 };
