@@ -3,15 +3,27 @@ import { EventStatus } from '@prisma/client';
 import { prisma } from '@/db';
 
 const getAllEvents = async (startDate: string) => {
-  return await prisma.event.findMany({
-    where: {
-      startDate: new Date(startDate),
-    },
-    include: {
-      eventParticipants: true,
-      timeSuggestions: true,
-    },
-  });
+  if (startDate) {
+    return await prisma.event.findMany({
+      where: {
+        startDate: new Date(startDate),
+      },
+      include: {
+        eventParticipants: true,
+        timeSuggestions: true,
+        office: true,
+      },
+    });
+  } else {
+    return await prisma.event.findMany({
+      include: {
+        eventParticipants: true,
+        timeSuggestions: true,
+        office: true,
+      },
+    });
+  }
+
 };
 
 const getEventDetails = async (eventId: number) => {
