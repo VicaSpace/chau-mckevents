@@ -24,7 +24,7 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <div className="event-card">
       <EventCardHeader name={name} organizer={organizer} office={office} />
-      <div className="event-mid">
+      <div className="card-content">
         <div className="event-date">
           <div className="event-date-month">
             {moment(date).format('MMMM Do').toString()}
