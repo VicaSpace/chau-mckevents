@@ -21,6 +21,20 @@ const getUserByUsername = async (username: string) => {
   return user;
 };
 
+const getUserById = async (id: number) => {
+  const user = await prisma.user.findUnique({
+    where: {
+      id: id,
+    },
+    select: {
+      username: true,
+      email: true,
+    }
+  });
+
+  return user;
+};
+
 const register = async (username, password, email) => {
   await validateRegistrationRequest(username);
   return await prisma.user.create({
@@ -53,13 +67,13 @@ const login = async (username, password) => {
   return {
     username: user?.username,
     email: user?.email,
-    token: token
+    token: token,
   };
 };
 
 const verifyToken = async (token) => {
   const verifyData = await jwt.verify(token, process.env.JWT_SECRET);
   return verifyData;
-}
+};
 
-export { register, login, verifyToken };
+export { register, login, verifyToken, getUserById };

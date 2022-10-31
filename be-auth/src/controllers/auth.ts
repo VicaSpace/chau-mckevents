@@ -1,5 +1,6 @@
 // import { prisma } from '@/db';
 import {
+  getUserById,
   login,
   register,
   verifyToken,
@@ -28,9 +29,15 @@ const verifyTokenHandler = async (req, res) => {
   res.status(200).json(verifiedUser);
 }
 
+const getUserInfoByIdHandler = async (req, res) => {
+  const user = await getUserById(Number(req.params.id))
+  res.status(200).json(user);
+}
+
 export {
   registerHandler,
   loginHandler,
   getUserInfoHandler,
   verifyTokenHandler,
+  getUserInfoByIdHandler
 };
