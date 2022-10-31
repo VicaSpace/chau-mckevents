@@ -35,7 +35,7 @@ const EventCard: React.FC<EventCardProps> = ({
         location={location}
         status={status}
       />
-      <EventCardFooter />
+      <EventCardFooter status={status} />
     </div>
   );
 };

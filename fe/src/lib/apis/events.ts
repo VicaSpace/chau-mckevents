@@ -17,7 +17,7 @@ export const getAllEvents = async () => {
         const owner = await getUserInfoById(event.ownerId);
         return {
           ...event,
-          owner: owner,
+          owner,
         };
       })
     );
@@ -26,4 +26,21 @@ export const getAllEvents = async () => {
   }
 
   return [];
+};
+
+export const createNewEvent = async (data: any) => {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken !== null) {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    };
+    const res = await axios.post(`${URL}/api/events`, data, config);
+    console.log(res.data);
+
+    return res.data;
+  }
+
+  return {};
 };
