@@ -1,5 +1,25 @@
 .card-footer {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding: 12px 0px;
+
+    width: 832.95px;
+    height: 40px;
+
+    /* Neutral/1 */
+
+    background: #FFFFFF;
+    /* border & divider/divider ↑ */
+
+    box-shadow: inset 0px 1px 0px #F0F0F0;
+    bottom: 0px;
+
+    justify-content: center;
+}
+
+.card-footer-item {
+    flex-grow: 1;
+    display: flex;
     justify-content: center;
 }
