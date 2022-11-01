@@ -27,7 +27,7 @@ const EventContent: React.FC<{
   };
 
   return (
-    <div className="card-content">
+    <div className="card-content" data-testid="test-card-content">
       <div className="event-date">
         <div className="event-date-month">
           {moment(date).format('MMMM Do').toString()}

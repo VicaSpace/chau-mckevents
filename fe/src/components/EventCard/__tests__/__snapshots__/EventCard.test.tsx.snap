@@ -7,26 +7,31 @@ exports[`Test: Event Card component screenshot should render the Event Card corr
   >
     <div
       class="card-head"
+      data-testid="test-card-head"
     >
       <div
         class="event-name"
+        data-testid="test-event-name"
       >
         test
       </div>
       <div
         class="event-organizer"
+        data-testid="test-event-organizer"
       >
         Organizer: 
         test-organizer
       </div>
       <div
         class="event-office"
+        data-testid="test-event-office"
       >
         test
       </div>
     </div>
     <div
       class="card-content"
+      data-testid="test-card-content"
     >
       <div
         class="event-date"
@@ -60,6 +65,7 @@ exports[`Test: Event Card component screenshot should render the Event Card corr
     </div>
     <div
       class="card-footer"
+      data-testid="test-card-footer"
     >
       <div
         class="card-footer-item"

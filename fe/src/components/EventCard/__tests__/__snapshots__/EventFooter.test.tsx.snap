@@ -4,6 +4,7 @@ exports[`Test: Event Card Footer component screenshot should render the Event Ca
 <div>
   <div
     class="card-footer"
+    data-testid="test-card-footer"
   >
     <div
       class="card-footer-item"

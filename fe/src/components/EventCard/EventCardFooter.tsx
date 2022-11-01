@@ -8,7 +8,7 @@ import './EventCardFooter.css';
 
 const EventCardFooter: React.FC<{ status: string }> = ({ status }) => {
   return (
-    <div className="card-footer">
+    <div className="card-footer" data-testid="test-card-footer">
       <div className="card-footer-item">
         <CheckCircleOutlined
           data-testid="check-icon"

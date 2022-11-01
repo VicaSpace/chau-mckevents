@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test: Event Card Header component screenshot should render the Event Card correctly 1`] = `
+<div>
+  <div
+    class="card-head"
+    data-testid="test-card-head"
+  >
+    <div
+      class="event-name"
+      data-testid="test-event-name"
+    >
+      test
+    </div>
+    <div
+      class="event-organizer"
+      data-testid="test-event-organizer"
+    >
+      Organizer: 
+      test-organizer
+    </div>
+    <div
+      class="event-office"
+      data-testid="test-event-office"
+    >
+      test-office
+    </div>
+  </div>
+</div>
+`;

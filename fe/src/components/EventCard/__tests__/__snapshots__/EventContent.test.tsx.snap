@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test: Event Card component screenshot should render the Event Card correctly 1`] = `
+<div>
+  <div
+    class="card-content"
+    data-testid="test-card-content"
+  >
+    <div
+      class="event-date"
+    >
+      <div
+        class="event-date-month"
+      >
+        February 2nd
+      </div>
+      <div
+        class="event-year"
+      >
+        2020
+      </div>
+    </div>
+    <div
+      class="event-time"
+      data-testid="test-event-time"
+    >
+      Time suggestions:
+       
+      08:02 / 09:02
+    </div>
+    <div
+      class="event-location"
+      data-testid="test-event-location"
+    >
+      Location: 
+      test
+    </div>
+  </div>
+</div>
+`;

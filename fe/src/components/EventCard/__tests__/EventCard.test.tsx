@@ -18,7 +18,8 @@ const dummyProps = {
             id: 1,
             time: '2020-02-02 09:00:00',
         },
-    ]
+    ],
+    status: 'CONFIRMED'
 }
 
 describe('Test: Event Card component screenshot', () => {
@@ -30,37 +31,22 @@ describe('Test: Event Card component screenshot', () => {
     });
   });
 
-describe('Test: Event Card props NOT_CONFIRMED', () => {
-    it('should render location node', () => {
+describe('Test: Event Card node', () => {
+    it('should render header node', () => {
         render(<EventCard {...dummyProps} status='NOT_CONFIRMED' />);
-        const eventLocation = screen.getByTestId('test-event-location');
-        expect(eventLocation.classList).toContain('event-location');
-        expect(eventLocation.textContent).toContain(dummyProps.location);
+        const eventLocation = screen.getByTestId('test-card-head');
+        expect(eventLocation.classList).toContain('card-head');
     });
 
-    it('should render time node', () => {
-        render(<EventCard {...dummyProps} status='NOT_CONFIRMED'/>);
-        const eventLocation = screen.getByTestId('test-event-time');
-        expect(eventLocation.classList).toContain('event-time');
-        expect(eventLocation.textContent).toContain('Time suggestions');
-        // expect(eventLocation.textContent).toContain('08:00 / 09:00');
-    });
-});
-
-
-describe('Test: Event Card props CONFIRMED', () => {
-    it('should render location node', () => {
-        render(<EventCard {...dummyProps} status='CONFIRMED' />);
-        const eventLocation = screen.getByTestId('test-event-location');
-        expect(eventLocation.classList).toContain('event-location');
-        expect(eventLocation.textContent).toContain(dummyProps.location);
+    it('should render content node', () => {
+        render(<EventCard {...dummyProps} status='NOT_CONFIRMED' />);
+        const eventLocation = screen.getByTestId('test-card-content');
+        expect(eventLocation.classList).toContain('card-content');
     });
 
-    it('should render time node', () => {
-        render(<EventCard {...dummyProps} status='CONFIRMED'/>);
-        const eventLocation = screen.getByTestId('test-event-time');
-        expect(eventLocation.classList).toContain('event-time');
-        expect(eventLocation.textContent).toContain('Time:');
+    it('should render footer node', () => {
+        render(<EventCard {...dummyProps} status='NOT_CONFIRMED' />);
+        const eventLocation = screen.getByTestId('test-card-footer');
+        expect(eventLocation.classList).toContain('card-footer');
     });
 });
-
