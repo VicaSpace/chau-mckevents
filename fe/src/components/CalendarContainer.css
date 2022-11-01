@@ -1,0 +1,20 @@
+.calendar-container {
+    position: absolute;
+    width: 392px;
+    height: 364.84px;
+    left: 0px;
+    top: 75px;
+
+    background: #FFFFFF;
+}
+
+.calendar {
+    position: absolute;
+    width: 320.32px;
+    height: 317px;
+    left: 45px;
+    top: 113px;
+
+    background: rgba(37, 124, 227, 0.9);
+    border-radius: 20px;
+}
