@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import './EventContainer.css';
 import EventForm from './EventForm';
+import PopUp from './Popup';
 
 const EventContainer: React.FC<{}> = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,11 @@ const EventContainer: React.FC<{}> = () => {
       <button className="create-event-button" onClick={() => setIsOpen(true)}>
         Create new event
       </button>
-      {isOpen && <EventForm setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <PopUp heading="Event Create Form" setIsOpen={setIsOpen}>
+          <EventForm setIsOpen={setIsOpen} />
+        </PopUp>
+      )}
     </div>
   );
 };
