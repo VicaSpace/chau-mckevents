@@ -1,5 +1,6 @@
 import { prisma } from "@/db";
-import { login, register, verifyToken } from "../auth";
+import { User } from "@prisma/client";
+import { getUserById, login, register, verifyToken } from "../auth";
 
 describe('test auth service', () => {
   it('should login successfully', async () => {
@@ -22,5 +23,36 @@ describe('test auth service', () => {
 
     // tear down
     await prisma.user.delete({ where: { id: registeredUser.id } });
+  });
+
+  it('should return user info by id', async () => {
+    const user = {
+      id: 1,
+      username: 'test',
+      password: 'pw',
+      email: 'email@email.com'
+    }
+
+    jest.spyOn(prisma.user, 'findUnique').mockResolvedValue(user as User);
+    const resultUser = await getUserById(1);
+    expect(resultUser).toBe(user);
+  });
+
+  it('should verify token', async () => {
+    const user = {
+      id: 1,
+      username: 'test',
+      password: 'pw',
+      email: 'email@email.com'
+    }
+
+    jest.spyOn(prisma.user, 'findUnique').mockResolvedValue(user as User);
+
+    const returnData = await login(user.username, user.password);
+    expect(returnData).not.toBeNull();
+
+    const verifyTokenResult = await verifyToken(returnData.token);
+    expect(verifyTokenResult.username).toBe(user.username);
+    expect(verifyTokenResult.id).toBe(user.id);
   });
 });
